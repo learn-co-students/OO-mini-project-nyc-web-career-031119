@@ -61,18 +61,18 @@ class Recipe
     end
   end
 
-  # def allergens
-  #   recipe_ingredient.map do |list|
-  #     allergen_all.include?(list)
-  #       list
-  #   #   end
-  #   # Allergen.all.map do |v|
-  #   #   v.ingredients
-  #
-  #   end
-  # end
+  def allergies
+     allergen_all.map do |list|
+       list.ingredient
+     end
+  end
 
-
+  def allergens
+    allergies.map do |list|
+      ingredients.include?(list)
+      list
+    end
+  end
 
   def add_ingredients(new_ingredients)
     RecipeIngredient.new(self, new_ingredients)

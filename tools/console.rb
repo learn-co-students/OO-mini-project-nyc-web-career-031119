@@ -19,8 +19,9 @@ noodle = Ingredient.new("noodle")
 sauce = Ingredient.new("sauce")
 
 #allergen instances
-dairy = Allergen.new(josh, milk)
-gluten = Allergen.new(liz, noodle)
+josh_allergy = Allergen.new(josh, milk)
+liz_allergy = Allergen.new(liz, noodle)
+jim_allergy = Allergen.new(jim, milk)
 
 #recipe card instances
 josh_pasta = RecipeCard.new(josh, pasta,  5)
@@ -34,6 +35,7 @@ jim_pasta = RecipeCard.new(jim, pasta, 9)
 #RecipeIngredient instances
 dinner = RecipeIngredient.new(pasta, milk)
 meal = RecipeIngredient.new(pasta, sauce)
+noodle = RecipeIngredient.new(pasta, noodle)
 
 
 binding.pry
