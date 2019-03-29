@@ -31,6 +31,12 @@ class Recipe
     end
   end
 
+  def allergens
+    ingredients.select do |ingredient|
+      ingredient.allergens.length > 0
+    end
+  end
+
   def recipe_ingredients
     RecipeIngredient.all.select do |recipe_ingredients|
       recipe_ingredients.recipe == self

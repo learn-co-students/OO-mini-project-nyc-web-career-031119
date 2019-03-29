@@ -19,6 +19,24 @@ class User
     end
   end
 
+  def dangerous_ingredients
+    allergens.map do |allergen|
+      allergen.ingredient
+    end
+  end
+
+  def get_recipe
+    arr = []
+    recipes.each do |recipe|
+        dangerous_ingredients.each do |ingr|
+          if !recipe.ingredients.include?(ingr)
+            arr << recipe
+          end
+        end
+    end
+    return arr
+  end
+
   def add_recipe_card(rating, recipe)
     RecipeCard.new(rating, self, recipe)
   end
@@ -45,5 +63,9 @@ class User
 
   def r_length
     recipes.length
+  end
+
+  def self.all
+    @@all
   end
 end

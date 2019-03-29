@@ -17,9 +17,15 @@ class Ingredient
     end.last
   end
 
-  def users
+  def allergens
     Allergen.all.select do |allergen|
       allergen.ingredient == self
+    end
+  end
+
+  def users
+    allergens.map do |allergen|
+      allergen.user
     end
   end
 end
